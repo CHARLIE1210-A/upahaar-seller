@@ -62,7 +62,7 @@ export default function SettingsPage() {
                                 <Input id="gst-doc" type="file" />
                                 <Button variant="outline" size="icon"><Upload className="h-4 w-4" /></Button>
                              </div>
-                             <p className="text-xs text-muted-foreground">Status: <span className="font-medium text-green-600">Verified</span></p>
+                             <p className="text-xs text-muted-foreground">Status: <span className="font-medium" style={{ color: 'hsl(var(--chart-3))' }}>Verified</span></p>
                          </div>
                          <div className="space-y-2">
                              <Label htmlFor="pan-doc">PAN Card</Label>
@@ -70,7 +70,7 @@ export default function SettingsPage() {
                                 <Input id="pan-doc" type="file" />
                                 <Button variant="outline" size="icon"><Upload className="h-4 w-4" /></Button>
                              </div>
-                              <p className="text-xs text-muted-foreground">Status: <span className="font-medium text-green-600">Verified</span></p>
+                              <p className="text-xs text-muted-foreground">Status: <span className="font-medium" style={{ color: 'hsl(var(--chart-3))' }}>Verified</span></p>
                          </div>
                      </div>
                 </CardContent>

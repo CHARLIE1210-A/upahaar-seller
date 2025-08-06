@@ -11,14 +11,14 @@ const notifications = [
         read: false
     },
     {
-        icon: <CheckCircle2 className="h-5 w-5 text-green-500" />,
+        icon: <CheckCircle2 className="h-5 w-5" style={{ color: 'hsl(var(--chart-3))' }} />,
         title: "Payout Processed",
         time: "2 days ago",
         description: "Your payout of ₹50,000 has been successfully processed.",
         read: true
     },
     {
-        icon: <Bell className="h-5 w-5 text-yellow-500" />,
+        icon: <Bell className="h-5 w-5" style={{ color: 'hsl(var(--chart-4))' }} />,
         title: "Platform Announcement",
         time: "4 days ago",
         description: "Scheduled maintenance on Sunday, June 25th from 2 AM to 4 AM.",
