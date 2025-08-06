@@ -75,7 +75,7 @@ export default function LandingPage() {
                     </Link>
                   </Button>
                    <Button size="lg" variant="outline" asChild>
-                    <Link href="/login">
+                    <Link href="/dashboard">
                       Login to Dashboard
                     </Link>
                   </Button>
