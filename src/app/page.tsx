@@ -48,51 +48,82 @@ export default function LandingPage() {
       </header>
 
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+        <section className="w-full py-20 md:py-32 lg:py-40">
+          <div className="container px-4 text-center md:px-6">
+            <div className="flex flex-col items-center space-y-4">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+                Join the Premier Network for Gift Vendors
+              </h1>
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                Upahaar provides the tools and platform you need to grow your gift business. Reach more customers, manage orders effortlessly, and watch your sales soar.
+              </p>
+              <div className="flex gap-4">
+                <Button size="lg" asChild>
+                  <Link href="/signup">
+                    Get Started Now
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/login">
+                    Vendor Login
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section className="w-full py-12 md:py-24 lg:py-32">
+           <div className="container px-4 md:px-6">
+             <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
                 <Image
                     src="https://placehold.co/600x400.png"
                     width="600"
                     height="400"
-                    alt="Hero"
-                    className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-                    data-ai-hint="gift shop interior"
+                    alt="Feature"
+                    className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
+                    data-ai-hint="gift preparation"
                   />
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Join the Premier Network for Gift Vendors
-                  </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Upahaar provides the tools and platform you need to grow your gift business. Reach more customers, manage orders effortlessly, and watch your sales soar.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg" asChild>
-                    <Link href="/signup">
-                      Get Started
-                    </Link>
-                  </Button>
-                   <Button size="lg" variant="outline" asChild>
-                    <Link href="/dashboard">
-                      Login to Dashboard
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+               <div className="flex flex-col justify-center space-y-4">
+                 <div className="space-y-2">
+                   <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">Our Platform</div>
+                   <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Everything You Need to Succeed</h2>
+                   <p className="max-w-[600px] text-muted-foreground">
+                    Our platform is packed with features designed to help you run your business smoothly and efficiently, from product listing to payment processing.
+                   </p>
+                 </div>
+                 <ul className="grid gap-2 py-4">
+                    <li>
+                        <div className="grid gap-1">
+                            <h3 className="text-lg font-bold">Intuitive Dashboard</h3>
+                            <p className="text-sm text-muted-foreground">Manage everything from one central hub.</p>
+                        </div>
+                    </li>
+                     <li>
+                        <div className="grid gap-1">
+                            <h3 className="text-lg font-bold">Wide Customer Reach</h3>
+                            <p className="text-sm text-muted-foreground">Connect with thousands of buyers on the Upahaar network.</p>
+                        </div>
+                    </li>
+                     <li>
+                        <div className="grid gap-1">
+                            <h3 className="text-lg font-bold">Reliable Delivery Network</h3>
+                            <p className="text-sm text-muted-foreground">Leverage our logistics for timely deliveries.</p>
+                        </div>
+                    </li>
+                 </ul>
+               </div>
+             </div>
+           </div>
         </section>
 
         <section className="w-full bg-muted py-12 md:py-24 lg:py-32">
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                     <div className="space-y-2">
-                        <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Key Features</div>
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Everything You Need to Succeed</h2>
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Why Join Upahaar?</h2>
                         <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            Our platform is packed with features designed to help you run your business smoothly and efficiently.
+                            Focus on what you do best—creating beautiful gifts. We'll handle the rest.
                         </p>
                     </div>
                 </div>
@@ -127,7 +158,7 @@ export default function LandingPage() {
                         </Link>
                     </Button>
                     <p className="text-xs text-muted-foreground">
-                        Start selling in minutes. It's free to join.
+                        It's free to join. Start selling in minutes.
                     </p>
                 </div>
             </div>
