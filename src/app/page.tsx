@@ -27,7 +27,7 @@ export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
+        <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
               <Gift className="h-5 w-5" />
@@ -49,7 +49,7 @@ export default function LandingPage() {
 
       <main className="flex-1">
         <section className="w-full py-20 md:py-32 lg:py-40">
-          <div className="container px-4 text-center md:px-6">
+          <div className="container mx-auto px-4 text-center md:px-6">
             <div className="flex flex-col items-center space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
                 Join the Premier Network for Gift Vendors
@@ -74,7 +74,7 @@ export default function LandingPage() {
         </section>
         
         <section className="w-full py-12 md:py-24 lg:py-32">
-           <div className="container px-4 md:px-6">
+           <div className="container mx-auto px-4 md:px-6">
              <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
                 <Image
                     src="https://placehold.co/600x400.png"
@@ -118,7 +118,7 @@ export default function LandingPage() {
         </section>
 
         <section className="w-full bg-muted py-12 md:py-24 lg:py-32">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
                     <div className="space-y-2">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Why Join Upahaar?</h2>
@@ -142,7 +142,7 @@ export default function LandingPage() {
         </section>
         
         <section className="w-full py-12 md:py-24 lg:py-32">
-            <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
+            <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
                 <div className="space-y-3">
                     <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
                         Ready to Grow Your Gift Business?
