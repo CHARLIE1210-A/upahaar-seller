@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import type { Product } from "@/lib/types";
-import { generateProductTags } from "@/ai/flows/product-tagging";
 
 const productFormSchema = z.object({
   name: z.string().min(3, "Product name must be at least 3 characters"),
@@ -42,7 +41,6 @@ interface ProductFormProps {
 
 export function ProductForm({ product, onFinished }: ProductFormProps) {
   const { toast } = useToast();
-  const [isGenerating, setIsGenerating] = useState(false);
 
   const defaultValues: Partial<ProductFormValues> = {
     name: product?.name || "",
@@ -69,36 +67,6 @@ export function ProductForm({ product, onFinished }: ProductFormProps) {
     name: "categories",
   });
 
-  async function handleGenerateTags() {
-    const description = form.getValues("description");
-    if (!description || description.length < 10) {
-      toast({
-        variant: "destructive",
-        title: "Description too short",
-        description: "Please provide a more detailed product description.",
-      });
-      return;
-    }
-    setIsGenerating(true);
-    try {
-      const result = await generateProductTags({ description });
-      form.setValue("tags", result.tags, { shouldValidate: true });
-      form.setValue("categories", result.categories, { shouldValidate: true });
-      toast({
-        title: "AI Generation Complete!",
-        description: "Tags and categories have been generated for you.",
-      });
-    } catch (error) {
-      console.error(error);
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem with the AI generation.",
-      });
-    } finally {
-      setIsGenerating(false);
-    }
-  }
 
   function onSubmit(data: ProductFormValues) {
     console.log(data);
@@ -142,22 +110,6 @@ export function ProductForm({ product, onFinished }: ProductFormProps) {
             </FormItem>
           )}
         />
-
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          onClick={handleGenerateTags}
-          disabled={isGenerating}
-        >
-          {isGenerating ? (
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          ) : (
-            <Sparkles className="mr-2 h-4 w-4" />
-          )}
-          Generate Tags & Categories with AI
-        </Button>
-
         <div className="grid grid-cols-2 gap-4">
           <FormField
             control={form.control}
