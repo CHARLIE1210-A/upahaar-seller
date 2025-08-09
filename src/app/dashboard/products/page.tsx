@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { PlusCircle, MoreHorizontal } from 'lucide-react';
 import Image from 'next/image';
 
@@ -60,6 +61,29 @@ export default function ProductsPage() {
     setOpen(true);
   }
 
+  
+const [products, setProducts] = useState([]);
+
+useEffect(() => {
+  const token = localStorage.getItem("token"); // Or however you're storing it
+  console.log(token)
+  
+  axios.get("http://localhost:8081/products/get-product", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      console.log(response.data);
+      setProducts(response.data);
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+    });
+}, []); 
+
+
+
   return (
     <>
       <div className="flex items-center">
@@ -110,7 +134,7 @@ export default function ProductsPage() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {mockProducts.map((product) => (
+              {products.map((product) => (
                 <TableRow key={product.id}>
                   <TableCell className="hidden sm:table-cell">
                     <Image

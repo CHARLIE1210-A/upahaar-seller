@@ -18,10 +18,46 @@ import { Label } from "@/components/ui/label";
 export default function SignupPage() {
   const router = useRouter();
 
-  const handleSignup = (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you'd handle signup and move to the next onboarding step.
-    router.push("/dashboard");
+    const storeName = (document.getElementById("store-name") as HTMLInputElement)
+    .value;
+    const email = (document.getElementById("email") as HTMLInputElement)
+    .value;
+    const password = (document.getElementById("password") as HTMLInputElement)
+    .value;
+
+  try {
+    const payload = {
+      store_name: storeName,
+      email: email, 
+      password: password,  
+    };
+
+    const res = await fetch("http://localhost:8081/api/auth/seller/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      throw new Error("Signup failed");
+    }
+
+    const data = await res.json();
+
+    // If backend sends token, store it
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+    }
+
+    router.push("/login");
+  } catch (err) {
+    console.error(err);
+    alert("Signup failed. Please try again.");
+  }
   };
 
   return (

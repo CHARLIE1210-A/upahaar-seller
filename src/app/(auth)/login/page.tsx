@@ -18,10 +18,45 @@ import { Label } from "@/components/ui/label";
 export default function LoginPage() {
   const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you'd have auth logic here.
-    router.push("/dashboard");
+
+    const email = (document.getElementById("email") as HTMLInputElement)
+    .value;
+    const password = (document.getElementById("password") as HTMLInputElement)
+    .value;
+    try {
+      const payload = {
+        email: email, 
+        password: password,  
+      };
+  
+      const res = await fetch("http://localhost:8081/api/auth/seller/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+  
+      if (!res.ok) {
+        throw new Error("Signup failed");
+      }
+  
+      const data = await res.json();
+  
+      console.log(data)
+      // If backend sends token, store it
+      console.log("Token",data.token)
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
+  
+      router.push("/dashboard");
+    } catch (err) {
+      console.error(err);
+      alert("Signup failed. Please try again.");
+    }
   };
 
   return (
